@@ -1,31 +1,4 @@
 ﻿@page "/"
-@using System.Timers
+@using BlazorIncremental.Components
 
-<h1>Miliseconds elapsed: @milisecondsElapsed</h1>
-
-<button @onclick="StartTimer">Start timer</button>
-
-Welcome to your new app.
-
-@code {
-    private DateTime lastTime = DateTime.Now;
-    private double milisecondsElapsed = 0;
-
-    private Timer timer = new Timer();
-
-    private void StartTimer()
-    {
-        timer.Interval = 30;
-        timer.Elapsed += TimerElapsed;
-        lastTime = DateTime.Now;
-        timer.Start();
-    }
-
-    private void TimerElapsed(object sender, ElapsedEventArgs e)
-    {
-        var previousTime = lastTime;
-        lastTime = e.SignalTime;
-        milisecondsElapsed += (lastTime - previousTime).TotalMilliseconds;
-        this.StateHasChanged();
-    }
-}
+<Game></Game>

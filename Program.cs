@@ -14,6 +14,7 @@ namespace BlazorIncremental
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient(ge => new GameEngine());
 
             await builder.Build().RunAsync();
         }
